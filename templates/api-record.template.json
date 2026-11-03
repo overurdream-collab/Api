@@ -1,0 +1,61 @@
+{
+  "id": "example-provider-api",
+  "name": "Example API",
+  "provider": "Example Provider",
+  "domain": ["automotive"],
+  "status": "discovered",
+  "summary": "Describe the API's purpose and intended use.",
+  "official_website": null,
+  "documentation_url": null,
+  "pricing_url": null,
+  "terms_url": null,
+  "privacy_url": null,
+  "commercial_use": {
+    "allowed": null,
+    "evidence_url": null,
+    "notes": "Unverified. Do not use in production until confirmed."
+  },
+  "authentication": {
+    "method": null,
+    "secret_storage_notes": "Never commit credentials. Use the consuming project's secret manager."
+  },
+  "coverage": {
+    "geographies": [],
+    "entities": [],
+    "freshness": null,
+    "known_gaps": []
+  },
+  "limits": {
+    "free_tier": null,
+    "paid_tiers": [],
+    "rate_limits": null,
+    "quotas": null,
+    "overage": null
+  },
+  "data_handling": {
+    "data_sent": [],
+    "retention": null,
+    "training_use": null,
+    "residency": null,
+    "security_notes": "Not assessed."
+  },
+  "technical_assessment": {
+    "api_style": null,
+    "versioning": null,
+    "sdk_support": [],
+    "reliability_notes": "Not tested.",
+    "integration_effort": "unknown"
+  },
+  "test_evidence": [],
+  "risks": [],
+  "alternatives": [],
+  "consuming_projects": [],
+  "sources": [],
+  "open_questions": ["Verify official documentation, pricing, commercial rights, privacy, coverage, and rate limits."],
+  "review": {
+    "reviewer": null,
+    "reviewed_at": null,
+    "decision": "not_reviewed",
+    "decision_notes": "No approval granted."
+  }
+}
