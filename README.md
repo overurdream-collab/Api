@@ -20,7 +20,8 @@ Maintain one source of truth for API capabilities, coverage, commercial terms, o
 Only an authorized human reviewer may set `approved`. Re-evaluate approval when pricing, terms, API versions, ownership, or data handling changes.
 
 ## Repository map
-- `registry/apis.json`: canonical API inventory; starts empty.
+- `registry/apis.json`: curated API inventory; remains empty until candidates complete review.
+- `registry/discovery/public-apis/`: imported discovery-only snapshot split into JSON shards; see `manifest.json` and `docs/attribution-public-apis.md`.
 - `schema/api-record.schema.json`: machine-readable record contract.
 - `templates/api-record.template.json`: starter record.
 - `docs/approval-policy.md`: approval gates and governance.
@@ -35,5 +36,8 @@ Only an authorized human reviewer may set `approved`. Re-evaluate approval when 
 5. Complete security, privacy, legal/commercial, and operational review.
 6. Keep status at `review_required` until an authorized reviewer approves it.
 
+## Imported discovery catalog
+The community-maintained `public-apis/public-apis` HTTP API category tables are imported under `registry/discovery/public-apis/`. This is discovery metadata only: upstream descriptions and Auth/HTTPS/CORS flags are not independently verified. Pricing, commercial rights, coverage, privacy, security, and endpoint availability remain unverified. See the manifest and attribution document.
+
 ## Current state
-No APIs are approved yet. The inventory is intentionally empty until evidence is collected and reviewed.
+No APIs are approved. The curated inventory remains empty until individual candidates complete evidence collection and human review.

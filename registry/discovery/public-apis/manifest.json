@@ -1,0 +1,54 @@
+{
+  "catalog_name": "public-apis",
+  "source_repository": "https://github.com/public-apis/public-apis",
+  "source_readme": "https://github.com/public-apis/public-apis/blob/master/README.md",
+  "source_license": "https://github.com/public-apis/public-apis/blob/master/LICENSE",
+  "source_readme_blob": "fcdbfadf6a98c3c6d2601fe2b6f543f2f4101c4c",
+  "source_license_blob": "196b23b178fbf71317fc55c3d3e01d481b5760e5",
+  "source_copyright": "Copyright (c) 2022 public-apis",
+  "license": "MIT",
+  "imported_at": "2026-11-03",
+  "import_policy": "Discovery-only; no API is approved by this import. Provider terms, commercial rights, pricing, availability, coverage, and security require independent verification.",
+  "upstream_rows": 2141,
+  "deduplicated_records": 2139,
+  "duplicate_rows_removed": 2,
+  "source_category_count": 51,
+  "shards": [
+    {
+      "file": "part-01.json",
+      "record_count": 267
+    },
+    {
+      "file": "part-02.json",
+      "record_count": 267
+    },
+    {
+      "file": "part-03.json",
+      "record_count": 268
+    },
+    {
+      "file": "part-04.json",
+      "record_count": 267
+    },
+    {
+      "file": "part-05.json",
+      "record_count": 267
+    },
+    {
+      "file": "part-06.json",
+      "record_count": 268
+    },
+    {
+      "file": "part-07.json",
+      "record_count": 267
+    },
+    {
+      "file": "part-08.json",
+      "record_count": 268
+    }
+  ],
+  "excluded_sections": [
+    "APILayer promotional tables",
+    "MCP server directory"
+  ]
+}
