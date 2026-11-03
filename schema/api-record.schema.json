@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/overurdream-collab/Api/blob/main/schema/api-record.schema.json",
+  "title": "API Registry Record",
+  "description": "Evidence-backed record for evaluating an external API. Unknown values must remain null or be listed as open questions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "name", "provider", "domain", "status", "summary",
+    "official_website", "documentation_url", "pricing_url", "terms_url",
+    "commercial_use", "authentication", "coverage", "limits",
+    "data_handling", "technical_assessment", "test_evidence",
+    "risks", "alternatives", "consuming_projects", "review"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "name": {"type": "string", "minLength": 1},
+    "provider": {"type": "string", "minLength": 1},
+    "domain": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "status": {"enum": ["discovered", "researching", "testing", "review_required", "approved", "rejected", "deprecated"]},
+    "summary": {"type": "string"},
+    "official_website": {"type": ["string", "null"], "format": "uri"},
+    "documentation_url": {"type": ["string", "null"], "format": "uri"},
+    "pricing_url": {"type": ["string", "null"], "format": "uri"},
+    "terms_url": {"type": ["string", "null"], "format": "uri"},
+    "privacy_url": {"type": ["string", "null"], "format": "uri"},
+    "commercial_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed", "evidence_url", "notes"],
+      "properties": {
+        "allowed": {"type": ["boolean", "null"]},
+        "evidence_url": {"type": ["string", "null"], "format": "uri"},
+        "notes": {"type": "string"}
+      }
+    },
+    "authentication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "secret_storage_notes"],
+      "properties": {
+        "method": {"type": ["string", "null"]},
+        "secret_storage_notes": {"type": "string"}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["geographies", "entities", "freshness", "known_gaps"],
+      "properties": {
+        "geographies": {"type": "array", "items": {"type": "string"}},
+        "entities": {"type": "array", "items": {"type": "string"}},
+        "freshness": {"type": ["string", "null"]},
+        "known_gaps": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["free_tier", "paid_tiers", "rate_limits", "quotas", "overage"],
+      "properties": {
+        "free_tier": {"type": ["string", "null"]},
+        "paid_tiers": {"type": "array", "items": {"type": "string"}},
+        "rate_limits": {"type": ["string", "null"]},
+        "quotas": {"type": ["string", "null"]},
+        "overage": {"type": ["string", "null"]}
+      }
+    },
+    "data_handling": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["data_sent", "retention", "training_use", "residency", "security_notes"],
+      "properties": {
+        "data_sent": {"type": "array", "items": {"type": "string"}},
+        "retention": {"type": ["string", "null"]},
+        "training_use": {"type": ["string", "null"]},
+        "residency": {"type": ["string", "null"]},
+        "security_notes": {"type": "string"}
+      }
+    },
+    "technical_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["api_style", "versioning", "sdk_support", "reliability_notes", "integration_effort"],
+      "properties": {
+        "api_style": {"type": ["string", "null"]},
+        "versioning": {"type": ["string", "null"]},
+        "sdk_support": {"type": "array", "items": {"type": "string"}},
+        "reliability_notes": {"type": "string"},
+        "integration_effort": {"enum": ["low", "medium", "high", "unknown"]}
+      }
+    },
+    "test_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["date", "environment", "test", "result", "evidence_url", "notes"],
+        "properties": {
+          "date": {"type": "string", "format": "date"},
+          "environment": {"type": "string"},
+          "test": {"type": "string"},
+          "result": {"enum": ["pass", "fail", "partial", "not_run"]},
+          "evidence_url": {"type": ["string", "null"], "format": "uri"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "risks": {"type": "array", "items": {"type": "string"}},
+    "alternatives": {"type": "array", "items": {"type": "string"}},
+    "consuming_projects": {"type": "array", "items": {"type": "string"}},
+    "sources": {"type": "array", "items": {"type": "string", "format": "uri"}},
+    "open_questions": {"type": "array", "items": {"type": "string"}},
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewer", "reviewed_at", "decision", "decision_notes"],
+      "properties": {
+        "reviewer": {"type": ["string", "null"]},
+        "reviewed_at": {"type": ["string", "null"], "format": "date"},
+        "decision": {"enum": ["not_reviewed", "approved", "rejected", "conditional"]},
+        "decision_notes": {"type": "string"}
+      }
+    }
+  }
+}
